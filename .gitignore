@@ -1,0 +1,7 @@
+venv
+sources
+__pycache__
+lib/__pycache__
+specs/__pycache__
+serials
+.vscode/
