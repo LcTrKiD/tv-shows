@@ -4,8 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pycodestyle = "*"
+pep8 = "*"
+tmdbsimple = "*"
 
 [packages]
+requests = "*"
+bs4 = "*"
+requests-html = "*"
 
 [requires]
 python_version = "3.7"
