@@ -35,6 +35,7 @@ def eztv_imdb(imdb_id, page=1):
 def __get_torrent_count(imdb_id):
     return eztv_imdb(imdb_id)['torrents_count']
 
+
 def __get_magnet_link(eztv_json, season, episode)
 
 

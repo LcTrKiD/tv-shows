@@ -54,16 +54,16 @@ class APITool(object):
              params: Optional[dict] = None) -> dict:
         return self._request('GET', path, version, params=params)
 
-    def _POST(self, path: str, version: str, 
-              params: Optional[dict] = None, 
+    def _POST(self, path: str, version: str,
+              params: Optional[dict] = None,
               payload: dict = None) -> dict:
         return self._request('POST', path, version,
-                             params=params, 
+                             params=params,
                              payload=payload)
 
     def _DELETE(self, path: str, version: str,
                 params: Optional[dict] = None,
                 payload=None) -> dict:
         return self._request('DELETE', path, version,
-                             params=params, 
+                             params=params,
                              payload=payload)

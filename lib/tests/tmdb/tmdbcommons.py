@@ -19,7 +19,9 @@ JSON_TMDBID = {
             ],
             "original_language": "en",
             "backdrop_path": "/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
-            "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
+            "overview": "When a young boy vanishes, a small town uncovers a \
+mystery involving secret experiments, terrifying supernatural forces, and one \
+strange little girl.",
             "origin_country": [
                 "US"
             ]
@@ -38,17 +40,24 @@ JSON_TMDBID = {
             ],
             "original_language": "en",
             "backdrop_path": "/qevaCqIekzc7Bp5f2kGAi92kO39.jpg",
-            "overview": "Secrets from the \"Stranger Things 2\" universe are revealed as cast and guests discuss the latest episodes with host Jim Rash. Caution: spoilers ahead!",
+            "overview": "Secrets from the \"Stranger Things 2\" universe are \
+revealed as cast and guests discuss the latest episodes with host Jim Rash. \
+Caution: spoilers ahead!",
             "origin_country": []
         }
     ]
 }
-JSON_EXT_ID = {'id': 66732, 'imdb_id': 'tt4574334', 'freebase_mid': None, 'freebase_id': None, 'tvdb_id': 305288, 'tvrage_id': 48493, 'facebook_id': 'StrangerThingsTV', 'instagram_id': 'strangerthingstv', 'twitter_id': 'stranger_things'}
+JSON_EXT_ID = {'id': 66732, 'imdb_id': 'tt4574334', 'freebase_mid': None,
+               'freebase_id': None, 'tvdb_id': 305288, 'tvrage_id': 48493,
+               'facebook_id': 'StrangerThingsTV',
+               'instagram_id': 'strangerthingstv',
+               'twitter_id': 'stranger_things'}
 TV_SHOW = 'Stranger Things'
 TMDB_ID = 66732
 API_KEY = 'test_api_key'
 URL = 'https://api.themoviedb.org/3'
 TMDB_ID_PATH = '/search/tv'
 EXT_ID_PATH = f'/tv/{TMDB_ID}/external_ids'
-TMDB_ID_URL = f'{URL}{TMDB_ID_PATH}?api_key={API_KEY}&query={TV_SHOW.replace(" ", "%20")}'
+FIXED_TV_SHOW = TV_SHOW.replace(" ", "%20")
+TMDB_ID_URL = f'{URL}{TMDB_ID_PATH}?api_key={API_KEY}&query={FIXED_TV_SHOW}'
 EXT_ID_URL = f'{URL}{EXT_ID_PATH}?api_key={API_KEY}'
