@@ -1,4 +1,5 @@
 import requests
+import json
 import tmdbsimple as tmdb
 from requests_html import HTMLSession
 
