@@ -1,4 +1,4 @@
-JSON = {
+JSON_TMDBID = {
     "page": 1,
     "total_results": 2,
     "total_pages": 1,
@@ -43,8 +43,12 @@ JSON = {
         }
     ]
 }
-
+JSON_EXT_ID = {'id': 66732, 'imdb_id': 'tt4574334', 'freebase_mid': None, 'freebase_id': None, 'tvdb_id': 305288, 'tvrage_id': 48493, 'facebook_id': 'StrangerThingsTV', 'instagram_id': 'strangerthingstv', 'twitter_id': 'stranger_things'}
 TV_SHOW = 'Stranger Things'
+TMDB_ID = 66732
 API_KEY = 'ae3d0eb6baf8bffc074dbb90b8f764ba'
-URL = 'https://api.themoviedb.org/3/search/tv'
-URL += f'?api_key={API_KEY}&query={TV_SHOW.replace(" ", "%20")}'
+URL = 'https://api.themoviedb.org/3'
+TMDB_ID_PATH = '/search/tv'
+EXT_ID_PATH = f'/tv/{TMDB_ID}/external_ids'
+TMDB_ID_URL = f'{URL}{TMDB_ID_PATH}?api_key={API_KEY}&query={TV_SHOW.replace(" ", "%20")}'
+EXT_ID_URL = f'{URL}{EXT_ID_PATH}?api_key={API_KEY}'
