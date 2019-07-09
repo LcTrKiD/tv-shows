@@ -9,10 +9,15 @@ class APIToolKeyError(Exception):
 
 
 class APITool(object):
-    def __init__(self, headers: dict, base_uri: str, api_key: str):
+    def __init__(self, headers: dict, base_uri: str,
+                 api_key: Optional[str] = None):
         self.headers = headers
         self.base_uri = base_uri
         self.api_key = api_key
+
+    @staticmethod
+    def create(self) -> object:
+        return APITool(self.headers, self.base_uri, self.api_key)
 
     def _get_complete_url(self, version: str, path: str) -> str:
         return f'{self.base_uri}/{version}{path}'
@@ -44,7 +49,7 @@ class APITool(object):
         response.raise_for_status()
         response.encoding = 'utf-8'
         return response.json()
-    
+
     def _GET(self, path: str, version: str,
              params: Optional[dict] = None) -> dict:
         return self._request('GET', path, version, params=params)
