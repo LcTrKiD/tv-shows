@@ -1,7 +1,6 @@
-venv
-sources
 __pycache__
 lib/__pycache__
-specs/__pycache__
-serials
 .vscode/
+.mypy_cache/
+.pytest_cache/
+tmdb/.mypy_cache/
