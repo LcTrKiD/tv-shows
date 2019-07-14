@@ -12,6 +12,7 @@ mocker = "*"
 responses = "*"
 mypy = "*"
 pytest = "*"
+flake8 = "*"
 
 [packages]
 requests = "*"
