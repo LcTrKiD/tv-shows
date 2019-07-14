@@ -1,6 +1,6 @@
-import json
-
 from typing import Optional
+
+from requests import HTTPError
 
 from lib.apitool import APITool, APIToolKeyError
 
@@ -38,7 +38,7 @@ class TMDBTools(object):
         path = f'/{self.version}/tv/{id}/external_ids'
         try:
             response = self.apitool._GET(path)
-        except:
+        except HTTPError:
             raise TMDBError('TV ID incorrect')
         if response is None:
             return None
