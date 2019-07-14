@@ -1,6 +1,5 @@
 import unittest
 
-import requests
 import responses
 
 from lib.eztvtools import EZTVTools

@@ -1,6 +1,5 @@
 import unittest
 
-import requests
 import responses
 
 from lib.tmdbtools import TMDBTools
@@ -38,6 +37,7 @@ class TestTMDBTools(unittest.TestCase):
         tmdb = TMDBTools(commons.API_KEY)
         imdb_id = tmdb._get_imdb_id(commons.TMDB_ID)
         self.assertEqual(test_id, imdb_id)
+
 
 if __name__ == '__main__':
     unittest.main()
