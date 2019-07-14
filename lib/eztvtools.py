@@ -1,17 +1,15 @@
-import json
-
 from math import ceil
 
-from typing import Optional
+from typing import Optional, List
 
-from lib.apitool import APITool, APIToolKeyError
+from lib.apitool import APITool
 
 
 class EZTVError(Exception):
     pass
 
 
-class EZTVTools(object):
+class EZTVTools(APITool):
     def __init__(self, imdb_id: Optional[int] = None,
                  season: Optional[str] = None,
                  episode: Optional[str] = None,
@@ -35,8 +33,8 @@ class EZTVTools(object):
         return response
 
     def _get_magnet_url(self) -> str:
-        ml = []
-        seeds = []
+        ml: List[str] = []
+        seeds: List[int] = []
         page_limit = 30
         response = self._get_torrents()
         t_count = response['torrents_count']
@@ -48,23 +46,23 @@ class EZTVTools(object):
                     if (torrent['season'] == self.season and
                             torrent['episode'] == self.episode and
                             self.quality in torrent['title']):
-                            if not seeds:
-                                ml.append(torrent['magnet_url'])
-                                seeds.append(torrent['seeds'])
-                            if torrent['seeds'] >= seeds[0]:
-                                seeds = []
-                                ml = []
-                                seeds.append(torrent['seeds'])
-                                ml.append(torrent['magnet_url'])
+                        if not seeds:
+                            ml.append(torrent['magnet_url'])
+                            seeds.append(torrent['seeds'])
+                        if torrent['seeds'] >= seeds[0]:
+                            seeds = []
+                            ml = []
+                            seeds.append(torrent['seeds'])
+                            ml.append(torrent['magnet_url'])
                 else:
                     if (torrent['season'] == self.season and
                             torrent['episode'] == self.episode):
-                            if not seeds:
-                                ml.append(torrent['magnet_url'])
-                                seeds.append(torrent['seeds'])
-                            if torrent['seeds'] >= seeds[0]:
-                                seeds = []
-                                ml = []
-                                seeds.append(torrent['seeds'])
-                                ml.append(torrent['magnet_url'])
+                        if not seeds:
+                            ml.append(torrent['magnet_url'])
+                            seeds.append(torrent['seeds'])
+                        if torrent['seeds'] >= seeds[0]:
+                            seeds = []
+                            ml = []
+                            seeds.append(torrent['seeds'])
+                            ml.append(torrent['magnet_url'])
         return ml[0]
